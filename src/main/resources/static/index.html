@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>악성코드 판별 및 분류</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: sans-serif;
+            height: 100%;
+            margin: 0;
+        }
+        #mid{
+            display: grid;
+            place-items: center;
+            min-height: 55vh;
+        }
+        .container {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        .image-upload {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+        }
+
+        label {
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        #chooseFile {
+            visibility: hidden;
+        }
+
+        .fileContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fileInput {
+            display: flex;
+            align-items: center;
+            border-bottom: solid 2px black;
+            width: 60%;
+            height: 30px;
+        }
+
+        #fileName {
+            margin-left: 5px;
+        }
+
+        .buttonContainer {
+            width: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+            background-color: black;
+            color: white;
+            border-radius: 30px;
+            padding: 10px;
+            font-size: 0.8em;
+
+            cursor: pointer;
+        }
+
+        .image-show {
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+    <div id="mid">
+        <div>
+            악성코드
+        </div>
+        <p>
+            파일을 인공지능을 통해 악성코드 판별 및 분류합니다.
+        </p>
+        <div class="container">
+            <div class="image-upload" id="image-upload">
+
+                <div class="fileContainer">
+                    <div class="fileInput">
+                        <p>FILE NAME: </p>
+                        <p id="fileName"></p>
+                    </div>
+                    <div class="buttonContainer">
+                        <div class="submitButton" id="submitButton">SUBMIT</div>
+                    </div>
+                </div>
+                <p>
+
+                </p>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="button">
+                        <label for="chooseFile">
+                            파일 업로드
+                        </label>
+                    </div>
+                    <input type="file" id="chooseFile" name="chooseFile" accept="*" onchange="loadFile(this)">
+                </form>
+
+            </div>
+
+            <div class="image-show" id="image-show"></div>
+        </div>
+    </div>
+</body>
+</html>
